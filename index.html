@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ReservaPro Studio</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="app-header">
+      <div class="brand">
+        <span>RP</span>
+        <div>
+          <strong>ReservaPro</strong>
+          <small>Studio</small>
+        </div>
+      </div>
+      <nav aria-label="Secciones">
+        <a href="#agenda">Agenda</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#clientes">Clientes</a>
+      </nav>
+      <div class="header-actions">
+        <span class="live-pill">Operando hoy</span>
+        <button id="clearBtn" type="button">Limpiar demo</button>
+      </div>
+    </header>
+
+    <main class="layout">
+      <section class="hero" aria-labelledby="mainTitle">
+        <div>
+          <p class="eyebrow">Sistema de reservas</p>
+          <h1 id="mainTitle">Agenda comercial para estudios y servicios premium</h1>
+          <p>Gestiona citas, ingresos, ocupacion y clientes desde una sola pantalla.</p>
+          <div class="hero-actions">
+            <a href="#agenda">Ver agenda</a>
+            <a href="#servicios">Catalogo</a>
+          </div>
+        </div>
+        <div class="summary-grid">
+          <article>
+            <span>Citas hoy</span>
+            <strong id="todayCount">0</strong>
+          </article>
+          <article>
+            <span>Ingresos</span>
+            <strong id="revenueCount">$0</strong>
+          </article>
+          <article>
+            <span>Ocupacion</span>
+            <strong id="occupancyCount">0%</strong>
+          </article>
+        </div>
+      </section>
+
+      <section class="operations-strip" aria-label="Indicadores operativos">
+        <article>
+          <span>Ticket promedio</span>
+          <strong id="avgTicket">$0</strong>
+        </article>
+        <article>
+          <span>Proxima cita</span>
+          <strong id="nextAppointment">--:--</strong>
+        </article>
+        <article>
+          <span>Servicio top</span>
+          <strong id="topService">Premium</strong>
+        </article>
+        <article>
+          <span>Retencion</span>
+          <strong>82%</strong>
+        </article>
+      </section>
+
+      <section class="workbench">
+        <aside class="booking-card">
+          <div>
+            <p class="eyebrow">Nueva reserva</p>
+            <h2>Crear cita</h2>
+          </div>
+          <form id="bookingForm">
+            <label>
+              Cliente
+              <input id="clientName" required placeholder="Nombre completo" />
+            </label>
+            <label>
+              Servicio
+              <select id="serviceSelect"></select>
+            </label>
+            <label>
+              Profesional
+              <select id="staffSelect">
+                <option>Ana Morales</option>
+                <option>Diego Vargas</option>
+                <option>Laura Chen</option>
+              </select>
+            </label>
+            <div class="split">
+              <label>
+                Fecha
+                <input id="dateInput" type="date" required />
+              </label>
+              <label>
+                Hora
+                <input id="timeInput" type="time" required />
+              </label>
+            </div>
+            <label>
+              Notas
+              <textarea id="notesInput" rows="3" placeholder="Preferencias, alergias o detalles"></textarea>
+            </label>
+            <button type="submit">Agendar cita</button>
+          </form>
+        </aside>
+
+        <section class="calendar-panel" id="agenda">
+          <div class="panel-header">
+            <div>
+              <p class="eyebrow">Agenda activa</p>
+              <h2>Reservas confirmadas</h2>
+            </div>
+            <div class="tabs" role="tablist" aria-label="Filtro agenda">
+              <button class="active" data-filter="all" type="button">Todas</button>
+              <button data-filter="today" type="button">Hoy</button>
+              <button data-filter="vip" type="button">VIP</button>
+            </div>
+          </div>
+          <div id="appointments" class="appointments"></div>
+        </section>
+      </section>
+
+      <section class="grid">
+        <article class="panel" id="servicios">
+          <div class="panel-header">
+            <div>
+              <p class="eyebrow">Catalogo</p>
+              <h2>Servicios disponibles</h2>
+            </div>
+          </div>
+          <div id="services" class="services"></div>
+        </article>
+
+        <article class="panel" id="clientes">
+          <div class="panel-header">
+            <div>
+              <p class="eyebrow">CRM ligero</p>
+              <h2>Clientes prioritarios</h2>
+            </div>
+          </div>
+          <div id="clients" class="clients"></div>
+        </article>
+      </section>
+
+      <section class="panel performance-panel">
+        <div class="panel-header">
+          <div>
+            <p class="eyebrow">Rendimiento semanal</p>
+            <h2>Ocupacion por dia</h2>
+          </div>
+        </div>
+        <div id="weeklyBars" class="weekly-bars"></div>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
