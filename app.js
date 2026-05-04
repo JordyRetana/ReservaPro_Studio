@@ -73,11 +73,11 @@ function modulePage(title, summary, rows) {
       <article class="panel module-table-panel">
         <div class="panel-head"><h2>${title}</h2><div><input data-search placeholder="Buscar..." /><button data-new>Nuevo</button></div></div>
         <div class="module-table"><table><thead><tr><th>Nombre</th><th>Detalle</th><th>Info</th><th>Estado</th></tr></thead><tbody data-table>
-          ${rows.map(row => `<tr>${row.map((cell, index) => `<td>${index === 3 ? `<mark>${cell}</mark>` : cell}</td>`).join('')}</tr>`).join('')}
+          ${rows.map(row => `<tr>${row.map((cell, index) => `<td data-label="${['Nombre','Detalle','Info','Estado'][index]}">${index === 3 ? `<mark>${cell}</mark>` : cell}</td>`).join('')}</tr>`).join('')}
         </tbody></table></div>
       </article>
       <aside class="right">
-        <article class="panel booking"><h2>Accion rapida</h2><label>Cliente<input placeholder="Nombre del cliente"></label><label>Servicio<select><option>${title}</option></select></label><label>Notas<textarea placeholder="Detalle"></textarea></label><button data-save>Guardar</button></article>
+        <article class="panel booking"><h2>Accion rapida</h2><label>Cliente<select data-client><option>Sofia Martinez</option><option>Carla Lopez</option><option>Daniela Ruiz</option><option>Nuevo cliente</option></select></label><label>Servicio<select data-service><option>${title}</option><option>Corte + Peinado</option><option>Coloracion</option><option>Tratamiento Capilar</option></select></label><label>Notas<textarea placeholder="Detalle"></textarea></label><button data-save>Guardar</button></article>
         <article class="panel income"><div class="panel-head"><h2>Resumen</h2><a>Ver reporte</a></div><strong>$ 32,480</strong><em>+18%</em><div class="bars"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></article>
       </aside>
     </section>`;
@@ -118,6 +118,7 @@ function bindActions() {
     button.onclick = () => {
       const original = button.textContent;
       button.textContent = 'Guardado';
+      toast('Accion guardada correctamente');
       setTimeout(() => button.textContent = original, 1200);
     };
   });
@@ -129,6 +130,7 @@ function bindActions() {
       const card = select.closest('.booking') || document.querySelector('.income');
       const summary = card?.querySelector('small') || card?.querySelector('em');
       if (summary) summary.textContent = `Seleccionado: ${select.value}`;
+      toast(`Seleccionaste ${select.value}`);
     });
   });
 
@@ -138,8 +140,31 @@ function bindActions() {
     button.addEventListener('click', () => {
       const panel = button.closest('.panel');
       panel?.classList.toggle('selected');
+      toast('Panel seleccionado');
     });
   });
+
+  document.querySelectorAll('.agenda .row, .module-table tbody tr, .vip p, .next p').forEach((row) => {
+    if (row.dataset.ready) return;
+    row.dataset.ready = 'true';
+    row.addEventListener('click', () => {
+      document.querySelectorAll('.selected-row').forEach((item) => item.classList.remove('selected-row'));
+      row.classList.add('selected-row');
+      toast(`Seleccionado: ${row.textContent.trim().slice(0, 42)}`);
+    });
+  });
+}
+
+function toast(message) {
+  let box = document.querySelector('.toast');
+  if (!box) {
+    box = document.createElement('div');
+    box.className = 'toast';
+    document.body.appendChild(box);
+  }
+  box.textContent = message;
+  box.classList.add('show');
+  setTimeout(() => box.classList.remove('show'), 1800);
 }
 
 bindActions();
