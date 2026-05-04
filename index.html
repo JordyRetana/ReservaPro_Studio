@@ -7,161 +7,45 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <header class="app-header">
-      <div class="brand">
-        <span>RP</span>
-        <div>
-          <strong>ReservaPro</strong>
-          <small>Studio</small>
-        </div>
-      </div>
-      <nav aria-label="Secciones">
-        <a href="#agenda">Agenda</a>
-        <a href="#servicios">Servicios</a>
-        <a href="#clientes">Clientes</a>
-      </nav>
-      <div class="header-actions">
-        <span class="live-pill">Operando hoy</span>
-        <button id="clearBtn" type="button">Limpiar demo</button>
-      </div>
-    </header>
-
-    <main class="layout">
-      <section class="hero" aria-labelledby="mainTitle">
-        <div>
-          <p class="eyebrow">Sistema de reservas</p>
-          <h1 id="mainTitle">Agenda comercial para estudios y servicios premium</h1>
-          <p>Gestiona citas, ingresos, ocupacion y clientes desde una sola pantalla.</p>
-          <div class="hero-actions">
-            <a href="#agenda">Ver agenda</a>
-            <a href="#servicios">Catalogo</a>
-          </div>
-        </div>
-        <div class="summary-grid">
-          <article>
-            <span>Citas hoy</span>
-            <strong id="todayCount">0</strong>
-          </article>
-          <article>
-            <span>Ingresos</span>
-            <strong id="revenueCount">$0</strong>
-          </article>
-          <article>
-            <span>Ocupacion</span>
-            <strong id="occupancyCount">0%</strong>
-          </article>
-        </div>
+    <aside class="sidebar">
+      <div class="brand"><span>▣</span><strong>ReservaPro<br>Studio</strong></div>
+      <nav><a class="active">⌂ Dashboard</a><a>▤ Agenda</a><a>▣ Reservas</a><a>♧ Clientes</a><a>☆ VIP</a><a>◇ Servicios</a><a>♚ Equipo</a><a>▥ Reportes</a><a>⌁ Ingresos</a><a>⚙ Configuración</a></nav>
+      <div class="branch"><i></i><strong>Studio Central</strong><small>Sucursal activa</small><b>›</b></div><a class="support">? Soporte</a>
+    </aside>
+    <main class="app">
+      <header class="topbar"><div></div><div><span>♧<b>3</b></span><span>⚙</span><strong>AD</strong><p>Admin⌄</p></div></header>
+      <section class="kpis">
+        <article><i>▣</i><div><span>Reservas Hoy</span><strong>18</strong><small>Total</small></div><em>+12% vs ayer</em></article>
+        <article><i>♧</i><div><span>Ocupación</span><strong>78%</strong><small>Hoy</small></div><em>+8% vs ayer</em></article>
+        <article><i>💰</i><div><span>Ingresos Hoy</span><strong>$ 5,240</strong><small>Total</small></div><em>+15% vs ayer</em></article>
+        <article><i>↗</i><div><span>Ingresos Mes</span><strong>$ 68,750</strong><small>Total</small></div><em>+20% vs mes anterior</em></article>
       </section>
-
-      <section class="operations-strip" aria-label="Indicadores operativos">
-        <article>
-          <span>Ticket promedio</span>
-          <strong id="avgTicket">$0</strong>
-        </article>
-        <article>
-          <span>Proxima cita</span>
-          <strong id="nextAppointment">--:--</strong>
-        </article>
-        <article>
-          <span>Servicio top</span>
-          <strong id="topService">Premium</strong>
-        </article>
-        <article>
-          <span>Retencion</span>
-          <strong>82%</strong>
-        </article>
-      </section>
-
-      <section class="workbench">
-        <aside class="booking-card">
-          <div>
-            <p class="eyebrow">Nueva reserva</p>
-            <h2>Crear cita</h2>
-          </div>
-          <form id="bookingForm">
-            <label>
-              Cliente
-              <input id="clientName" required placeholder="Nombre completo" />
-            </label>
-            <label>
-              Servicio
-              <select id="serviceSelect"></select>
-            </label>
-            <label>
-              Profesional
-              <select id="staffSelect">
-                <option>Ana Morales</option>
-                <option>Diego Vargas</option>
-                <option>Laura Chen</option>
-              </select>
-            </label>
-            <div class="split">
-              <label>
-                Fecha
-                <input id="dateInput" type="date" required />
-              </label>
-              <label>
-                Hora
-                <input id="timeInput" type="time" required />
-              </label>
-            </div>
-            <label>
-              Notas
-              <textarea id="notesInput" rows="3" placeholder="Preferencias, alergias o detalles"></textarea>
-            </label>
-            <button type="submit">Agendar cita</button>
-          </form>
+      <section class="layout">
+        <div class="left">
+          <article class="panel agenda"><div class="panel-head"><h2>Agenda - Hoy</h2><div><button>‹</button><button>›</button><button>Hoy</button><b>24 may 2025</b><button>Día⌄</button></div></div>
+            <div class="row"><b>09:00</b><i></i><strong>María López</strong><span>Corte + Peinado</span><mark>VIP</mark><em>Confirmada</em></div>
+            <div class="row"><b>10:00</b><i></i><strong>Ana Torres</strong><span>Coloración</span><mark></mark><em>Confirmada</em></div>
+            <div class="row"><b>11:00</b><i></i><strong>Reservado</strong><span>Extensiones</span><mark></mark><em>Confirmada</em></div>
+            <div class="row free"><b>12:00</b><i></i><strong>Disponible</strong><span>--</span><mark></mark><em>Disponible</em></div>
+            <div class="row"><b>13:00</b><i></i><strong>Luis Ramírez</strong><span>Barba + Corte</span><mark></mark><em>Confirmada</em></div>
+            <div class="row selected"><b>14:00</b><i></i><strong>Sofía Martínez</strong><span>Tratamiento Capilar</span><mark>VIP</mark><em>Confirmada</em></div>
+            <div class="row free"><b>15:00</b><i></i><strong>Disponible</strong><span>--</span><mark></mark><em>Disponible</em></div>
+            <div class="row"><b>16:00</b><i></i><strong>Reservado</strong><span>Ondas</span><mark></mark><em>Confirmada</em></div>
+            <div class="row"><b>17:00</b><i></i><strong>Carla Gómez</strong><span>Maquillaje</span><mark>VIP</mark><em>Confirmada</em></div>
+            <div class="row free"><b>18:00</b><i></i><strong>Disponible</strong><span>--</span><mark></mark><em>Disponible</em></div>
+          </article>
+          <article class="panel vip"><div class="panel-head"><h2>VIP</h2><a>Ver todos</a></div><p><b>SM</b>Sofía Martínez <mark>VIP</mark><span>12 visitas</span><em>20 may 2025</em><button>▣</button></p><p><b>CL</b>Carla López <mark>VIP</mark><span>9 visitas</span><em>18 may 2025</em><button>▣</button></p><p><b>JM</b>Julia Méndez <mark>VIP</mark><span>8 visitas</span><em>15 may 2025</em><button>▣</button></p><p><b>AG</b>Andrea Gómez <mark>VIP</mark><span>7 visitas</span><em>10 may 2025</em><button>▣</button></p></article>
+        </div>
+        <div class="middle">
+          <article class="panel services"><div class="panel-head"><h2>Servicios</h2><a>Ver todos</a></div><div><i>✂</i><strong>Corte + Peinado</strong><b>$ 450</b><small>45 min</small></div><div><i>●</i><strong>Coloración</strong><b>$ 950</b><small>90 min</small></div><div><i>✦</i><strong>Tratamiento Capilar</strong><b>$ 650</b><small>60 min</small></div><div><i>〰</i><strong>Barba + Corte</strong><b>$ 350</b><small>30 min</small></div><div><i>≋</i><strong>Ondas</strong><b>$ 550</b><small>60 min</small></div><div><i>▰</i><strong>Maquillaje</strong><b>$ 700</b><small>60 min</small></div></article>
+          <article class="panel next"><div class="panel-head"><h2>Próximas Reservas</h2><a>Ver todas</a></div><p><b>25 may 09:00</b>Daniela Ruiz<span>Coloración</span><mark>Confirmada</mark></p><p><b>25 may 11:00</b>Paula Medina<span>Corte + Peinado</span><mark>Confirmada</mark></p><p><b>25 may 13:00</b>Fernanda Castro<span>Tratamiento Capilar</span><mark>Confirmada</mark></p><p><b>25 may 15:00</b>Valeria Silva<span>Ondas</span><mark>Confirmada</mark></p></article>
+        </div>
+        <aside class="right">
+          <article class="panel booking"><h2>▣ Nueva Reserva</h2><label>Cliente<select><option>Seleccionar cliente</option></select></label><label>Servicio<select><option>Seleccionar servicio</option></select></label><label>Fecha<input value="24/05/2025" /></label><label>Hora<select><option>Seleccionar hora</option></select></label><label>Duración<input value="--" /></label><label>Personal<select><option>Seleccionar personal</option></select></label><label>Notas<textarea placeholder="Notas (opcional)"></textarea></label><button>Crear Reserva</button></article>
+          <article class="panel income"><div class="panel-head"><h2>Ingresos <small>Últimos 7 días</small></h2><a>Ver reporte</a></div><strong>$ 32,480</strong><em>+18% vs 7 días anteriores</em><div class="bars"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></article>
         </aside>
-
-        <section class="calendar-panel" id="agenda">
-          <div class="panel-header">
-            <div>
-              <p class="eyebrow">Agenda activa</p>
-              <h2>Reservas confirmadas</h2>
-            </div>
-            <div class="tabs" role="tablist" aria-label="Filtro agenda">
-              <button class="active" data-filter="all" type="button">Todas</button>
-              <button data-filter="today" type="button">Hoy</button>
-              <button data-filter="vip" type="button">VIP</button>
-            </div>
-          </div>
-          <div id="appointments" class="appointments"></div>
-        </section>
-      </section>
-
-      <section class="grid">
-        <article class="panel" id="servicios">
-          <div class="panel-header">
-            <div>
-              <p class="eyebrow">Catalogo</p>
-              <h2>Servicios disponibles</h2>
-            </div>
-          </div>
-          <div id="services" class="services"></div>
-        </article>
-
-        <article class="panel" id="clientes">
-          <div class="panel-header">
-            <div>
-              <p class="eyebrow">CRM ligero</p>
-              <h2>Clientes prioritarios</h2>
-            </div>
-          </div>
-          <div id="clients" class="clients"></div>
-        </article>
-      </section>
-
-      <section class="panel performance-panel">
-        <div class="panel-header">
-          <div>
-            <p class="eyebrow">Rendimiento semanal</p>
-            <h2>Ocupacion por dia</h2>
-          </div>
-        </div>
-        <div id="weeklyBars" class="weekly-bars"></div>
       </section>
     </main>
-
     <script src="app.js"></script>
   </body>
 </html>
